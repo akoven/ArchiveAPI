@@ -1,0 +1,187 @@
+artistId:
+
+Request components:
+	method: 'GET'
+ 	url: /artists/:artistId
+	headers: none
+	body: none
+Response components:
+	status code: 200
+	headers: application/json
+	body: {"name":"Red Hot Chili Peppers","artistId":1,"albums":[{"name":"Stadium Arcadium","albumId":1,"artistId":1}]}
+
+add an artist:
+
+Request components:
+	method: 'POST'
+	url: /artists
+Response components:
+	status code: 201
+	headers: application/json 
+	body: {"name": artist, "artistId": id}
+
+edit an artist:
+
+Request components:
+	method: 'PATCH'
+	url: /artists
+Response components:
+	status code: 200
+	headers: application/json 
+	body: {"name": updated artist, "artistId": id, "updatedAt": "2022-03-10T22:39:23.217Z"}
+
+delete an artist: 
+
+Request components:
+	method: 'DELETE'
+	url: /artists/:artistId
+
+Response components:
+    status code: 200
+    headers: application/json
+    body: "message": "Sucessfully deleted"
+
+Get all albums of a specific artist based on artistId:
+
+Request components: 
+	method: 'GET'
+	url: /artists/:artistId/albums
+Response components:
+	status code: 200
+	headers: application/json
+	body: {
+        "name": "Stadium Arcadium",
+        "albumId": 1,
+        "artistId": 1
+    }
+
+Get all albums of a specific artist based on albumId:
+
+Request components: 
+	method: 'GET'
+	url: /album/:albumId
+Response components:
+	status code: 200 
+	headers: application/json
+	body: {
+        "name": "Stadium Arcadium",
+        "albumId": 1,
+        "artistId": 1
+    }
+
+Add an album to a specific artist based on artistId
+
+Request components:
+	method: 'POST'
+	url: artists/artistId/albums
+Response components:
+	status code: 201
+	headers: application/json
+	body:  {
+        "name": "Mothers Milk"
+    }
+
+Edit a specified album by albumId
+
+Request components:
+	method: 'PATCH/PUT'
+	url: /albums/:albumId
+Response components:
+	status code: 201
+	headers: application/json
+	body: {
+    "name": "Mother's Milk",
+    "albumId": 1,
+    "artistId": 1,
+    "updatedAt": "2022-03-10T23:25:22.725Z"
+}
+
+Get all songs of a specific album based on albumId
+
+Request components:
+	method: 'GET'
+	url: /albums/:albumId/songs
+Response components:
+	status code: 200
+	headers: application/json
+	body: {
+        "name": "Dani California",
+        "lyrics": the lyrics
+        "trackNumber": 1,
+        "songId": 1,
+        "albumId": 1
+    }
+
+Get all songs of a specified trackNumber
+
+Request components:
+	method: 'GET'
+	url: /trackNumbers/:trackNumber/songs
+Response components:
+	status code: 200
+	headers: application/json
+	body: {
+        "name": "Dani California",
+        "lyrics": the lyrics
+        "trackNumber": 1,
+        "songId": 1,
+        "albumId": 1
+    }
+The difference between trackNumber query and albumId is how many songs would be rendered on the browser. One song vs multiple songs
+
+Get a specific song's details based on songId
+
+Request components:
+	method: 'GET'
+	url: songs/:songsId
+Response components:
+	status code: 200
+	headers: application/json
+	body: {
+        "name": "Dani California",
+        "lyrics": the lyrics
+        "trackNumber": 1,
+        "songId": 1,
+        "albumId": 1
+    }, "artist": {
+        "name": "Red Hot Chili Peppers",
+        "artistId": 1
+    }
+}
+
+Add a song to a specific album based on albumId
+
+Request components:
+	method: 'POST'
+	url: /albums/:albumId/songs
+Response components:
+	status code: 201
+	headers: application/json
+	body: {
+    "name": "Dark Necessities ",
+    "lyrics": null,
+    "trackNumber": null,
+    "songId": 2,
+    "albumId": 1
+}
+
+Edit a specified song by songId
+
+Request components:
+	method: 'PATCH/PUT'
+	url: /songs/:songId
+Response components:
+	status code: 200
+	headers: application/json
+	body: edited output on webpage
+
+Delete a specified song by songId
+
+Request components:
+	method: 'DELETE'
+	url: /songs/:songId
+Response components:
+	status code: 200
+	headers: application/json
+	body: { message: 'Sucessfully deleted' }
+	
